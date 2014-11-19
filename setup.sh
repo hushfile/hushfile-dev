@@ -1,5 +1,5 @@
 #!/bin/sh
 
-git submodule update --init hushfile-web
-git submodule update --ínit hushfile-server
-git submodule update --init hushfile-py-server
+git clone git@github.com:hushfile/hushfile-web.git
+git clone git@github.com:hushfile/hushfile-server.git
+git clone git@github.com:hushfile/hushfile-py-server.git
