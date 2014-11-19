@@ -24,11 +24,11 @@ file {"/var/www":
 
 file {"/var/www/hushfile-web":
   ensure => link,
-  target => "/home/vagrant/hushfile-web",
+  target => "/home/vagrant/hushfile/hushfile-web",
   require => File["/var/www"]
 }
 
-file {"/home/vagrant/hushfile-web/config.json":
+file {"/home/vagrant/hushfile/hushfile-web/config.json":
   source => "file:///vagrant/web-config.json"
 }
 

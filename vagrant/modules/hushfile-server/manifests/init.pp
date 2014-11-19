@@ -23,11 +23,11 @@ class hushfile-server {
 
   file {"/var/www/hushfile-server":
     ensure => link,
-    target => "/home/vagrant/hushfile-server",
+    target => "/home/vagrant/hushfile/hushfile-server",
     require => File["/var/www"]
   }
 
-  file {"/home/vagrant/hushfile-server/config.json":
+  file {"/home/vagrant/hushfile/hushfile-server/config.json":
     source => "file:///vagrant/server-config.json"
   }
 
