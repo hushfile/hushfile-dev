@@ -1,5 +1,8 @@
 #!/bin/sh
 
-git clone git@github.com:hushfile/hushfile-web.git
-git clone git@github.com:hushfile/hushfile-server.git
-git clone git@github.com:hushfile/hushfile-py-server.git
+for repo in hushfile-web hushfile-server hushfile-py-server
+do
+  if [ ! -d "${repo}" ]; then
+    git clone git@github.com:hushfile/$repo.git
+  fi
+done
