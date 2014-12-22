@@ -1,0 +1,23 @@
+---
+- name: Ensure requirements pip packages
+  pip: requirements=/home/vagrant/hushfile/hushfile-py-server/requirements.txt
+
+- name: Ensure data directory
+  file: name=/data/hushfile-py-server state=directory
+
+# - name: Download repository
+#   git: repo=ssh://git@github.com/hushfile/hushfile-py-server.git
+#        dest=/home/vagrant/hushfile/hushfile-py-server
+#        accept_hostkey=yes
+#        key_file=/home/rel/.ssh/id_rsa
+
+# - name: Create link
+#   file: src=/home/vagrant/hushfile/hushfile-py-server
+#         dest=/var/www/hushfile-py-server
+#         state=link
+
+- name: Write config file
+  template: src=server-config.json
+            dest=/home/vagrant/hushfile/hushfile-py-server/config.json
+
+# Also create config file

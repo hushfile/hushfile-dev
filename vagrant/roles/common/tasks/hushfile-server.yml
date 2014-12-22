@@ -1,0 +1,28 @@
+---
+- name: Install required packages
+  apt: name={{ item }} update_cache=yes state=installed
+  with_items:
+  	- nginx
+  	- php5-fpm
+
+- name: Ensure data directory
+  file: name=/data/hushfile-server state=directory
+
+- name: Download repository
+  git: repo=git@github.com:hushfile/hushfile-server.git
+  	   dest=/home/vagrant/hushfile
+
+- name: Add nginx conf from template
+  template: src=hushfile-server.nginx.conf.j2
+  			dest=/etc/nginx/sites-enabled/hushfile-server.conf
+
+#- name: Add apache2 conf from template
+#  template src=hushfile-server.apache2.conf.j2
+
+- name: Create /var/www/ link
+  file: src=/var/vagrant/hushfile/hushfile-server
+  		dest=/var/www/hushfile-server
+
+- name: Add config.json file
+  template: src=config.json.j2
+  			dest=/var/www/config.json
