@@ -6,8 +6,8 @@ This is the development environment setup to make it easy to start working on hu
 It also contains examples of how you can configure the service to run using different
 servers and clients.
 
-## Installing dev environment
 
+## Installing the development environment
 
 Inside a terminal execute the following commands
 
@@ -15,18 +15,12 @@ Inside a terminal execute the following commands
  2. `cd vagrant && vagrant up && vagrant ssh`
  3. Start coding
 
-## Developing
 
+## Developing
 
 When the box starts, there is no running server as the developer needs to decide which server to develop on/against.
 
-The servers are configured to use port `86` internally and `8600` externally. Thats means, the server should be accessible from the host machine at `http://localhost:8600`. You can only run
-one server at the time
+Vagrant uses port forwarding. Webaccess is gained through port 8600 and it will take 
+nginx is configured to proxy requests locally on port `86`. Access is gained from a browser on the host system through port `8600`. 
 
-## Starting servers
-
-Here you can find documentation on how to start the different servers.
-
-### hushfile-server/nginx
-
-ssh into the vagrant box and execute `sudo service nginx start`.
+That means, the server should be accessible from the host machine at `http://localhost:8600`.
