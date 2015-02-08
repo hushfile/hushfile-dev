@@ -3,7 +3,10 @@
   pip: requirements=/home/vagrant/hushfile/hushfile-py-server/requirements.txt
 
 - name: Ensure data directory
-  file: name=/data/hushfile-py-server state=directory
+  file:
+    name: /data/hushfile-py-server
+    state: directory
+    owner: vagrant
 
 # - name: Download repository
 #   git: repo=ssh://git@github.com/hushfile/hushfile-py-server.git
