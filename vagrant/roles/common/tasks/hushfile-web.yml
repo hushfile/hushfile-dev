@@ -6,5 +6,5 @@
 
 - name: Create configuration file
   template:
-    src: config.json.j2
+    src: web-config.json
     dest: /var/www/hushfile-web/config.json  
