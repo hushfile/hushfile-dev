@@ -20,9 +20,13 @@ On Debian/Ubuntu you can use `sudo apt-get install git vagrant virtualbox ansibl
 
 After the required applications are installed do the following in a terminal
 
- 1. `git clone git@github.com:hushfile/hushfile-dev.git && cd hushfile-dev && ./setup.py`
- 2. `cd vagrant && vagrant up && vagrant ssh`
- 3. Start coding
+ 1. `git clone git@github.com:hushfile/hushfile-dev.git`
+ 2. `cd hushfile-dev/`
+ 3. `./setup.sh`
+ 4. `cd vagrant`
+ 5. `vagrant up`
+ 6. `vagrant ssh`
+ 7. Start coding
 
 
 ### Branching strategy
