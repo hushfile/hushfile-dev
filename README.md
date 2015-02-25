@@ -2,25 +2,45 @@
 
 ## About
 
-This is the development environment setup to make it easy to start working on hushfile.
-It also contains examples of how you can configure the service to run using different
-servers and clients.
+The contents of this repository is for development on hushfile. It's purpose is to allow a uniform development environment for developers. Furthermore, the files can be used as an example on how to configure the service.
 
 
-## Installing the development environment
+## Developing
 
-Inside a terminal execute the following commands
+### Requirements
+  * https://vagrantup.com
+  * https://virtualbox.org
+  * https://ansible.com
+  * https://git-scm.com
+
+On Debian/Ubuntu you can use `sudo apt-get install git vagrant virtualbox ansible`.
+
+
+### Installing the development environment
+
+After the required applications are installed do the following in a terminal
 
  1. `git clone git@github.com:hushfile/hushfile-dev.git && cd hushfile-dev && ./setup.py`
  2. `cd vagrant && vagrant up && vagrant ssh`
  3. Start coding
 
 
-## Developing
+### Branching strategy
 
-When the box starts, there is no running server as the developer needs to decide which server to develop on/against.
+The project `HEAD` is in the `develop` branch. New features are developed by branching out of develop `git checkout -b feature-branch develop` and merged back into `develop` with github pull requests.
 
-Vagrant uses port forwarding. Webaccess is gained through port 8600 and it will take 
-nginx is configured to proxy requests locally on port `86`. Access is gained from a browser on the host system through port `8600`. 
+Keep in mind that this applies to each repository seperately.
 
-That means, the server should be accessible from the host machine at `http://localhost:8600`.
+`develop` is pristine, and changes on the `develop` branch for the server and web-interface are automatically pushed to https://dev.hushfile.it to be tested (***TODO***).
+Github pull requests are automatically tested with travis when changes are made to the pull request (***TODO***).
+
+When the `develop` branch is ready for production it is fast forwarded onto branch `master`. This is done manually, and the HEAD is tagged with a version number based on Semantic Versioning 2.0.0 (http://semver.org/)
+
+
+### Reporting issues
+
+We use the github issue tracker to keep track of issues. Please use the issue tracker in the respective repositories where they apply.
+
+
+## Contact/Support
+The easiest way to contact us is by joining our irc channel #hushfile on irc.freenode.net.
