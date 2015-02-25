@@ -1,3 +1,4 @@
 hushfile-py-server/
 hushfile-web/
 .vagrant
+vagrant/vagrant_ansible_inventory_default
